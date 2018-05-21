@@ -12,6 +12,7 @@ class Users extends CI_Controller{
 
         parent::__construct();
         $this->load->model('users_model');
+        $this->load->library('form_validation');
 
     }
 
@@ -23,6 +24,13 @@ class Users extends CI_Controller{
         $this->load->view("profile");
         $this->load->view("footer");
 
+    }
+
+    public function create_user(){
+        $data['title']="Create new user";
+        $this->load->view('header',$data);
+        $this->load->view('users/create');
+        $this->load->view('footer');
     }
 
     public function create(){
